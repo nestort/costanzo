@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">costanzo</string>
+    <string name="facebook_app_id">227409794472316</string>
+    <string name="fb_login_protocol_scheme">fb227409794472316</string>
+    <string name="cancel_login">Se cancelo el ingrreso</string>
+    <string name="error_login">Ha ocurrido un error</string>
+    <string name="logout">Cerrar sesion</string>
+    <string name="firebase_error_login">Ha ocurrido un error al autentificar con facebook</string>
+    <string name="desc_firebase_lockup">Descripcion</string>
+    <string name="firebaseui_title_text">titulo</string>
+    <string name="signed_out">Cerrar sesion</string>
+    <string name="sign_in">iniciar sesion</string>
+    <string name="sign_out">cerrar sesion</string>
+    <string name="label_firebase_ui">label firebase</string>
+    <string name="firebaseui_status_fmt">estatus</string>
+    <string name="id_fmt">fmt</string>
 </resources>
