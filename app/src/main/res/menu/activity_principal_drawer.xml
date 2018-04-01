@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_inicio"
+            android:icon="@drawable/ic_inicio"
+            android:title="Inicio" />
+        <item
+            android:id="@+id/nav_productos"
+            android:icon="@drawable/ic_productos"
+            android:title="Todos los productos" />
+        <item
+            android:id="@+id/nav_populares"
+            android:icon="@drawable/ic_populares"
+            android:title="Los más populares" />
+        <item
+            android:id="@+id/nav_acerca"
+            android:icon="@drawable/ic_acerca"
+            android:title="Acerca de nostros" />
+
+        <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/ic_share"
+            android:title="Compartir" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_logout"
+            android:title="Cerrar sesion" />
+    </group>
+
+
+
+</menu>
