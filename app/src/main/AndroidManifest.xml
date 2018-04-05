@@ -47,6 +47,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".Actividades.AcercadeActivity" />
+        <activity android:name=".Actividades.DescripcionComidaActivity" />
+        <activity android:name=".Actividades.ItemsListActivity" />
+        <activity android:name=".Actividades.CarroActivity"/>
+        <activity android:name=".Actividades.ResumenActivity"/>
     </application>
 
 </manifest>

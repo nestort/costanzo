@@ -108,7 +108,8 @@ public class DescripcionComidaActivity extends AppCompatActivity implements Carr
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.cart_menu,menu);
+        //getMenuInflater().inflate(R.menu.cart_menu,menu);
+        getMenuInflater().inflate(R.menu.principal,menu);
         this.menu = menu;
         onUpdate(Carrito.getInstance().getCarritoLista().size());
         return true;
