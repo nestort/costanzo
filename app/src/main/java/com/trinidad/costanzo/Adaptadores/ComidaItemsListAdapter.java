@@ -3,6 +3,7 @@ package com.trinidad.costanzo.Adaptadores;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -28,12 +29,16 @@ public class ComidaItemsListAdapter extends RecyclerView.Adapter<ComidaItemsList
     private ArrayList<Producto> comidas;
 
     public ComidaItemsListAdapter(Context context, ArrayList<Producto> comidas) {
+
+
         this.context = context;
         this.comidas = comidas;
     }
 
     @Override
     public ComidaItemsListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.comida_items_list_item,parent,false);

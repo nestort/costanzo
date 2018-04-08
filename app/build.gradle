@@ -10,7 +10,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 27
         versionCode 1
-        versionName "1.0"
+        versionName "aa.0"
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
     }
 
@@ -69,15 +69,15 @@ dependencies {
     compile 'com.android.support:customtabs:27.1.0'
 
     // Twitter Android SDK (only required for Twitter Login)
-    compile('com.twitter.sdk.android:twitter-core:3.2.0@aar') {
+    compile('com.twitter.sdk.android:twitter-core:3.2.0@1') {
         transitive = true
     }
-    compile('com.twitter.sdk.android:twitter:3.2.0@aar') {
+    compile('com.twitter.sdk.android:twitter:3.2.0@1') {
         transitive = true
     }
 
     androidTestCompile 'com.android.support.test.espresso:espresso-core:3.0.1'
-    androidTestCompile 'com.android.support.test:runner:1.0.1'
+    androidTestCompile 'com.android.support.test:runner:aa.0.1'
 }
 
 

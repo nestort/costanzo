@@ -39,7 +39,7 @@ public class HistorialListAdapter extends RecyclerView.Adapter<HistorialListAdap
     @Override
     public void onBindViewHolder(HistorialListAdapter.ViewHolder holder, int position) {
         String EstadoPedido=items.get(position).getEstado();
-        holder.fichaTV.setText("Ficha: "+items.get(position).getFicha());
+        holder.fichaTV.setText("No.Ticket: "+items.get(position).getFicha());
         holder.estadoTV.setText("Estado: "+EstadoPedido);
 
         holder.fechaordenTV.setText(getDateStringFrom(items.get(position).getFecha())+" "+getTimeAsString(items.get(position).getFecha()));

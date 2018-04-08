@@ -2,6 +2,7 @@ package com.trinidad.costanzo.Actividades;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -35,7 +36,7 @@ public class ResumenActivity extends AppCompatActivity {
     TextView TWCosto;
     ListView lista;
     List<String> ListaResumenItems;
-    double saldoactual;
+    //double saldoactual;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,40 +48,14 @@ public class ResumenActivity extends AppCompatActivity {
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Espere...");
-        saldo();
-        setTitle("Saldo actual : $" + saldoactual + "");
+        //saldo();
+        //setTitle("Saldo actual : $" + saldoactual + "");
         progressDialog.setCancelable(false);
 
 
     }
 
-    private void saldo() {
-        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-        FirebaseDatabase.getInstance().getReference().child("Saldo").child(uid)
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        try {
-                            saldoactual = Double.parseDouble(dataSnapshot.getValue().toString());
-                            setTitle("Saldo actual : $" + saldoactual + "");
-                        } catch (NullPointerException ex) {
-                            FirebaseDatabase.getInstance().getReference().child("Saldo").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue("0");
-
-
-                        }
-
-
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        Toast.makeText(ResumenActivity.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
-                        progressDialog.dismiss();
-                    }
-                });
-
-    }
 
     private void resumen_productos() {
         ListaResumenItems = new ArrayList<String>();
@@ -101,9 +76,10 @@ public class ResumenActivity extends AppCompatActivity {
     }
 
     public void TerminarPedido(View view) {
-        saldo();
+        Snackbar.make(view, "¡Pedido realizado!", Snackbar.LENGTH_LONG).show();
         Double costototal = (Carrito.getInstance().getTotal());
-        if (costototal <= saldoactual) {
+        //costototal <= saldoactual
+        if (true) {
             //progressDialog.show();
 
             new Pedido.OrderBuilder()
@@ -142,7 +118,9 @@ public class ResumenActivity extends AppCompatActivity {
 
                             progressDialog.cancel();
                             Carrito.getInstance().LimpiiarCarrito();
-                            finish();
+                            esperarYCerrar(3000);
+
+
                         }
 
                         @Override
@@ -211,6 +189,15 @@ public class ResumenActivity extends AppCompatActivity {
                 .setScale(cifras, RoundingMode.DOWN)
                 .stripTrailingZeros()
                 .toString();
+    }
+    public void esperarYCerrar(int milisegundos) {
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                // acciones que se ejecutan tras los milisegundos
+                finish();
+            }
+        }, milisegundos);
     }
 
 }

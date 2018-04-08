@@ -5,13 +5,21 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.GridLayout;
+import android.widget.Toast;
 
 import com.trinidad.costanzo.Actividades.ItemsListActivity;
+import com.trinidad.costanzo.Modelos.Categoria;
 import com.trinidad.costanzo.R;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -33,6 +41,11 @@ public class TodosProductosFragment extends Fragment implements View.OnClickList
 
     private OnFragmentInteractionListener mListener;
 
+
+    private RecyclerView rvCategorias;
+    private ArrayList <Categoria> categorias;
+    GridLayout mainGrid;
+
     public TodosProductosFragment() {
         // Required empty public constructor
     }
@@ -41,7 +54,7 @@ public class TodosProductosFragment extends Fragment implements View.OnClickList
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
+     * @param param1 Parameter aa.
      * @param param2 Parameter 2.
      * @return A new instance of fragment TodosProductosFragment.
      */
@@ -70,9 +83,75 @@ public class TodosProductosFragment extends Fragment implements View.OnClickList
         // Inflate the layout for this fragment
 
         View v=inflater.inflate(R.layout.fragment_todos_productos, container, false);
-        Button b = (Button) v.findViewById(R.id.bttcaramelos);
+
+//       mainGrid = (GridLayout) v.indViewById(R.id.mainGrid);
+
+        //Set Event
+        //CardView button=(CardView) v.findViewById(R.id.Caramelos);
+
+
+/*
+        for (int i = 0; i < mainGrid.getChildCount(); i++) {
+            //You can see , all child item is CardView , so we just cast object to CardView
+            CardView cardView = (CardView) mainGrid.getChildAt(i);
+//////////////////////
+            Bundle data = new Bundle();//create bundle instance
+            data.putString("key_value", "String to pass");//put string to pass with a key value
+            this.setArguments(data);//Set bundle data to fragment
+
+//////////7////////////77
+            cardView.setOnClickListener(this);
+            //setToggleEvent(mainGrid);
+        }*/
+
+       // Intent intent = new Intent(getActivity(),ItemsListActivity.class);
+        //intent.putExtra("categoria", "masVendidos");
+        //startActivity(intent);
+
+        CardView b = (CardView) v.findViewById(R.id.caramelos);
         b.setOnClickListener(this);
+
+        CardView chiclosos = (CardView) v.findViewById(R.id.chiclosos);
+        chiclosos.setOnClickListener(this);
+
+        CardView Chocolatesenvueltos = (CardView) v.findViewById(R.id.Chocolatesenvueltos);
+        Chocolatesenvueltos.setOnClickListener(this);
+
+        CardView chocolatessinenv = (CardView) v.findViewById(R.id.chocolatessinenvoltura);
+        chocolatessinenv.setOnClickListener(this);
+
+        CardView presentaciones = (CardView) v.findViewById(R.id.presentaciones);
+        presentaciones.setOnClickListener(this);
+
+        CardView temporalidades = (CardView) v.findViewById(R.id.temporalidades);
+        temporalidades.setOnClickListener(this);
+
+        CardView piezas = (CardView) v.findViewById(R.id.tablillas);
+        piezas.setOnClickListener(this);
+
+        CardView varios = (CardView) v.findViewById(R.id.varios);
+        varios.setOnClickListener(this);
+
+
+        CardView flores = (CardView) v.findViewById(R.id.flores);
+        flores.setOnClickListener(this);
+
+
+
+
         return v;
+    }
+
+
+    private void inicializarAdaptadores() {
+
+
+
+    }
+
+    private void inicializarDatos() {
+        categorias=new ArrayList<>();
+        categorias.add(new Categoria(R.drawable.caramelos,"Caramelos"));
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -101,14 +180,39 @@ public class TodosProductosFragment extends Fragment implements View.OnClickList
 
     @Override
     public void onClick(View view) {
-        Intent intent = new Intent(this.getContext(),ItemsListActivity.class);
-        switch (view.getId()){
-            case R.id.bttcaramelos:
-                intent.putExtra("categoria", "Caramelos");
-                break;
+        Intent intent = new Intent(this.getActivity(),ItemsListActivity.class);
 
+
+        if (view.getId()==R.id.caramelos){
+
+            intent.putExtra("categoria", "Caramelos");
+            startActivity(intent);
+        }else if(view.getId()==R.id.chiclosos){
+            intent.putExtra("categoria", "Chiclosos");
+            startActivity(intent);
+        }else if(view.getId()==R.id.Chocolatesenvueltos){
+            intent.putExtra("categoria", "Chocolatesenvueltos");
+            startActivity(intent);
+        }else if(view.getId()==R.id.chocolatessinenvoltura){
+            intent.putExtra("categoria", "chocolatessinenvolver");
+            startActivity(intent);
+        }else if(view.getId()==R.id.presentaciones){
+            intent.putExtra("categoria", "Presentaciones");
+            startActivity(intent);
+        }else if(view.getId()==R.id.temporalidades){
+            intent.putExtra("categoria", "Temporalidades");
+            startActivity(intent);
+        }else if(view.getId()==R.id.tablillas){
+            intent.putExtra("categoria", "piezas");
+            startActivity(intent);
+        }else if(view.getId()==R.id.flores){
+            intent.putExtra("categoria", "Flores");
+            startActivity(intent);
+        }else if(view.getId()==R.id.varios){
+            intent.putExtra("categoria", "Varios");
+            startActivity(intent);
         }
-        startActivity(intent);
+
 
     }
 

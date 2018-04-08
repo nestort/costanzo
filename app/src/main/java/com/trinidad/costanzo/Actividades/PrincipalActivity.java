@@ -49,18 +49,23 @@ public class PrincipalActivity extends AppCompatActivity implements NavigationVi
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        Fragment fragment=null;
+        fragment=new HomeFragment();
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.contenedor, fragment).commit();
 
 
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+
+        //FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        /*fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -198,7 +203,13 @@ public class PrincipalActivity extends AppCompatActivity implements NavigationVi
             startActivity(intent);
 
 
-        } else if (id == R.id.nav_acerca) {
+        }  else if (id == R.id.nav_historial) {
+            Intent intent = new Intent(this,HistoriaActivity.class);
+            //intent.putExtra("categoria", "masVendidos");
+            startActivity(intent);
+
+
+        }else if (id == R.id.nav_acerca) {
             fragment=new acercaFragment();
             //launchAcerca(this.getCurrentFocus());
             FragmentoSeleccionado=true;

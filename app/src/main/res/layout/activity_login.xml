@@ -20,9 +20,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/login_button"
-            android:layout_centerHorizontal="true"
+            android:layout_alignEnd="@+id/login_button"
+            android:layout_alignLeft="@+id/login_button"
+            android:layout_alignRight="@+id/login_button"
+            android:layout_alignStart="@+id/login_button"
+            android:layout_marginBottom="14dp"
+            android:backgroundTint="@color/colorAccent"
             android:onClick="iniciar_correo"
-            android:text="Iniciar con correo" />
+            android:text="Iniciar con correo"
+            android:textAlignment="center"
+            android:textColor="@color/browser_actions_bg_grey" />
 
         <com.facebook.login.widget.LoginButton
             android:id="@+id/login_button"

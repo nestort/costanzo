@@ -51,6 +51,7 @@
         <activity android:name=".Actividades.ItemsListActivity" />
         <activity android:name=".Actividades.CarroActivity"/>
         <activity android:name=".Actividades.ResumenActivity"/>
+        <activity android:name=".Actividades.HistoriaActivity"/>
     </application>
 
 </manifest>

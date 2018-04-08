@@ -17,6 +17,10 @@
             android:icon="@drawable/ic_populares"
             android:title="Los más populares" />
         <item
+            android:id="@+id/nav_historial"
+            android:icon="@drawable/ic_hourglass_full_black_24dp"
+            android:title="Compras realizadas" />
+        <item
             android:id="@+id/nav_acerca"
             android:icon="@drawable/ic_acerca"
             android:title="Acerca de nostros" />

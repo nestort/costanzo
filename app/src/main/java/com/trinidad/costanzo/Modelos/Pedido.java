@@ -250,11 +250,12 @@ public void ActualizarSaldo(final double Saldo_A_Restar){
 
         @Override
         public void onDataChange(DataSnapshot dataSnapshot) {
-            FirebaseDatabase.getInstance().getReference().child("Saldo")
+
+            /*FirebaseDatabase.getInstance().getReference().child("Saldo")
                     .child(UId)
                     .setValue(Double.parseDouble(dataSnapshot.child(UId).getValue().toString()) - Saldo_A_Restar);
             Log.d("obtenido",dataSnapshot.child(UId).getValue().toString());
-            return;
+            return;*/
 
         }
 

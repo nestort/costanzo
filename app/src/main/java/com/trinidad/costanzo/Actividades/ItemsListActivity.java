@@ -45,6 +45,9 @@ public class ItemsListActivity extends AppCompatActivity implements Carrito.Actu
         progressDialog.show();
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        //////////
+            ///------------>String getArgument = getArguments().getString("key_value");//Get pass data with its key value
+        //////////////////////
         database.getReference().child("Productos").child(selectedCategory).addValueEventListener(new ValueEventListener() {
 
             @Override
